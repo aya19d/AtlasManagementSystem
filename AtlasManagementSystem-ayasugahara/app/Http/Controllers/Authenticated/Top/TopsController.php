@@ -9,7 +9,8 @@ use Auth;
 class TopsController extends Controller
 {
     public function show(){
-        return view('authenticated.top.top');
+
+        return redirect('/top');
     }
 
     public function logout(){
