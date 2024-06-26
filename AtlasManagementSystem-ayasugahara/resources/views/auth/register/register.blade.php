@@ -18,6 +18,9 @@
       <div class="w-25 vh-75 border p-3">
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
+          @if ($errors->has('name'))
+  <li>{{$errors->first('name')}}</li>
+@endif
             <div class="" style="width:140px">
               <label class="d-block m-0" style="font-size:13px">姓</label>
               <div class="border-bottom border-primary" style="width:140px;">
@@ -46,6 +49,9 @@
             </div>
           </div>
           <div class="mt-3">
+            @if ($errors->has('name'))
+  <li>{{$errors->first('name')}}</li>
+@endif
             <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">

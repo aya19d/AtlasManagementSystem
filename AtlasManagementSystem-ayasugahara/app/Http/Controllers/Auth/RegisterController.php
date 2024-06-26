@@ -59,6 +59,14 @@ class RegisterController extends Controller
 
     public function registerPost(Request $request)
     {
+
+                // バリデーション
+        $request->validate([
+            'over_name' => 'required',
+            'under_name' => 'required',
+            'mail_address' => 'required',
+            ]);
+
         DB::beginTransaction();
         try{
             $old_year = $request->old_year;
