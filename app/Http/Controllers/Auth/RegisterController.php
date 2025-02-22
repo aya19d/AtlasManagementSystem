@@ -59,12 +59,19 @@ class RegisterController extends Controller
 
     public function registerPost(Request $request)
     {
-
                 // バリデーション
         $request->validate([
-            'over_name' => 'required',
-            'under_name' => 'required',
-            'mail_address' => 'required',
+            'over_name' => 'required|string|max:10',
+            'under_name' => 'required|string|max:10',
+            'over_name_kana' => 'required|string|max:30|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',
+            'under_name_kana' => 'required|string|max:30|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',
+            'mail_address' => 'required|email|unique|max:100',
+            'sex'=> 'required',
+            'old_year'=> 'required|date|after:2000-1-1|before_or_equal:today',
+            'old_month'=> 'required|date|after:2000-1-1|before_or_equal:today',
+            'old_day'=> 'required|date|after:2000-1-1|before_or_equal:today',
+            'role'=>'required',
+            'password'=>'required|min:8|max:30|confirmed',
             ]);
 
         DB::beginTransaction();

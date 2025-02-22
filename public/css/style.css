@@ -70,6 +70,15 @@ li {
   background: #EEE;
 }
 
+.past-date {
+  background-color: #e0e0e0;
+  /* グレー */
+  color: #a0a0a0;
+  /* テキストもグレー */
+  pointer-events: none;
+  /* クリック無効化 */
+}
+
 .calendar-td {
   min-width: 100px;
 }
@@ -302,4 +311,9 @@ li {
 
 .subject_inner {
   display: none;
+}
+
+.search_subject {
+  display: flex;
+  flex-flow: column;
 }

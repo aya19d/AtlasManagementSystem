@@ -60,7 +60,8 @@ class PostsController extends Controller
         $post = Post::create([
             'user_id' => Auth::id(),
             'post_title' => $request->post_title,
-            'post' => $request->post_body
+            'post' => $request->post_body,
+            'post_category_id' => $request -> post_category_id
         ]);
         return redirect()->route('post.show');
     }
@@ -117,6 +118,12 @@ class PostsController extends Controller
     }
 
     public function commentCreate(Request $request){
+
+     // バリデーション
+        $request->validate([
+            'comment' => 'required|max:2500|string'
+        ]);
+
         PostComment::create([
             'post_id' => $request->post_id,
             'user_id' => Auth::id(),

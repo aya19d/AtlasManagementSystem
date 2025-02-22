@@ -18,8 +18,8 @@
       <div class="w-25 vh-75 border p-3">
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
-          @if ($errors->has('name'))
-  <li>{{$errors->first('name')}}</li>
+          @if ($errors->has('over_name_kana'))
+  <li>{{$errors->first('over_name_kana')}}</li>
 @endif
             <div class="" style="width:140px">
               <label class="d-block m-0" style="font-size:13px">姓</label>
